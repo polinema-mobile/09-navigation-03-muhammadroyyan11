@@ -19,82 +19,90 @@
 		android:layout_height="match_parent"
 		tools:context=".fragments.GoalFragment">
 
-		<androidx.constraintlayout.widget.Guideline
-			android:id="@+id/guideline2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			app:layout_constraintGuide_percent="0.25" />
-
 		<TextView
 			android:id="@+id/textView6"
+			android:layout_width="100dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="24dp"
+			android:layout_marginTop="32dp"
+			android:text="Name"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id="@+id/guideline3"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Name"
-			app:layout_constraintEnd_toStartOf="@+id/guideline2"
+			android:orientation="vertical" />
+
+		<TextView
+			android:id="@+id/textView3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="32dp"
+			android:text="Masukkan Pencetak Goal"
+			android:textStyle="bold"
+			android:textSize="24sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.498"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
 			android:id="@+id/textView7"
-			android:layout_width="wrap_content"
+			android:layout_width="100dp"
 			android:layout_height="wrap_content"
-			android:text="Minute"
-			app:layout_constraintEnd_toStartOf="@+id/guideline2"
-			app:layout_constraintStart_toStartOf="parent"
+			android:layout_marginTop="24dp"
+			android:text="name"
+			app:layout_constraintStart_toStartOf="@+id/textView6"
 			app:layout_constraintTop_toBottomOf="@+id/input_name" />
 
 		<EditText
 			android:id="@+id/input_name"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_marginEnd="16dp"
 			android:ems="10"
 			android:inputType="textPersonName"
+			android:text="@={goalScorer.name}"
+			app:layout_constraintBottom_toBottomOf="@+id/textView6"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="@+id/guideline2"
-			app:layout_constraintTop_toTopOf="parent" />
+			app:layout_constraintStart_toEndOf="@+id/textView6"
+			app:layout_constraintTop_toTopOf="@+id/textView6" />
 
 		<EditText
 			android:id="@+id/input_minute"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
+			android:layout_marginEnd="16dp"
 			android:ems="10"
-			android:inputType="numberSigned"
+			android:inputType="number"
+			android:text="@={``+goalScorer.minute}"
+			app:layout_constraintBottom_toBottomOf="@+id/textView7"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="@+id/guideline2"
-			app:layout_constraintTop_toBottomOf="@+id/input_name" />
+			app:layout_constraintStart_toEndOf="@+id/textView7"
+			app:layout_constraintTop_toTopOf="@+id/textView7" />
 
 		<Button
 			android:id="@+id/button_save"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="8dp"
-			android:layout_marginEnd="8dp"
-			android:layout_marginBottom="8dp"
+			android:layout_marginEnd="32dp"
 			android:onClick="@{(v) -> fragment.onSaveClicked(v)}"
 			android:text="Save"
-			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="@+id/guideline3" />
+			app:layout_constraintTop_toTopOf="@+id/button_cancel" />
 
 		<Button
 			android:id="@+id/button_cancel"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="8dp"
+			android:layout_marginTop="16dp"
 			android:layout_marginEnd="8dp"
-			android:layout_marginBottom="8dp"
-			android:text="Cancel"
 			android:onClick="@{(v) -> fragment.onCancelClicked(v)}"
-			app:layout_constraintBottom_toBottomOf="parent"
-			app:layout_constraintEnd_toStartOf="@+id/guideline3"
-			app:layout_constraintStart_toStartOf="parent" />
+			android:text="Cancel"
+			app:layout_constraintEnd_toStartOf="@+id/button_save"
+			app:layout_constraintTop_toBottomOf="@+id/input_minute" />
 
-		<androidx.constraintlayout.widget.Guideline
-			android:id="@+id/guideline3"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:orientation="vertical"
-			app:layout_constraintGuide_percent="0.5" />
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

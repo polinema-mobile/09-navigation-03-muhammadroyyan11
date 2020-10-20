@@ -77,6 +77,20 @@ public class ScoreFragment extends Fragment {
 		Navigation.findNavController(view).navigate(action);
 	}
 
+	public String getHomeScorer() {
+		StringBuilder result = new StringBuilder();
+		for (GoalScorer goal : homeGoalScorerList) {
+			result.append(goal.getName()).append(" ").append(goal.getMinute()).append("\" ");
+		}
+		return result.toString();
+	}
 
+	public String getAwayScorer() {
+		StringBuilder result = new StringBuilder();
+		for (GoalScorer goal : awayGoalScorerList) {
+			result.append(goal.getName()).append(" ").append(goal.getMinute()).append("\" ");
+		}
+		return result.toString();
+	}
 
 }
